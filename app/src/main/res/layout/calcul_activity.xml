@@ -37,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_horizontal|center_vertical"
-                android:text="?"
+                android:hint="?"
                 android:textAlignment="center"
                 android:textSize="70sp" />
 

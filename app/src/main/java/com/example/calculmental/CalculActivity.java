@@ -7,6 +7,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class CalculActivity extends AppCompatActivity {
+    private TextView resultat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,10 +34,14 @@ public class CalculActivity extends AppCompatActivity {
         Button bouton0 = findViewById(R.id.button_0);
         bouton0.setOnClickListener(view -> ecrireChiffre(0));
 
-        TextView resultat = findViewById(R.id.resultat);
+        resultat = findViewById(R.id.resultat);
     }
 
     public void ecrireChiffre(Integer valeur) {
+        resultat.setText(resultat.getText()+valeur.toString());
+    }
+
+    public void calculRandom() {
 
     }
 
