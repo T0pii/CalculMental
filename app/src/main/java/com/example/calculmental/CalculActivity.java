@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class CalculActivity extends AppCompatActivity {
     private TextView resultat;
+    private TextView randomcalcul;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +36,7 @@ public class CalculActivity extends AppCompatActivity {
         bouton0.setOnClickListener(view -> ecrireChiffre(0));
 
         resultat = findViewById(R.id.resultat);
+        randomcalcul = findViewById(R.id.rdmcalc);
     }
 
     public void ecrireChiffre(Integer valeur) {
