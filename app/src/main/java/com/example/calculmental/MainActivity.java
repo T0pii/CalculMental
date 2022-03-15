@@ -9,26 +9,24 @@ import android.widget.Button;
 
  public class MainActivity extends AppCompatActivity {
 
-    private Button play;
-    private Button scores;
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+         setContentView(R.layout.activity_main);
+         Button btnjouer = findViewById(R.id.btnjouer);
+         btnjouer.setOnClickListener(view -> ouvreActiviteCalculer());
+         Button btnscores = findViewById(R.id.btnscores);
+         btnscores.setOnClickListener(view -> ouvreActiviteScores());
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+     }
 
-        this.play = findViewById(R.id.btnjouer);
-        this.scores = findViewById(R.id.btnscores);
+     private void ouvreActiviteScores() {
+         Intent intent = new Intent(this,ScoreActivity.class);
+         startActivity(intent);
+     }
 
-        play.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent compute_activity = new Intent(getApplicationContext(), CalculActivity.class);
-                startActivity(compute_activity);
-                finish();
-            }
-
-
-        });
-    }
+     private void ouvreActiviteCalculer() {
+         Intent intent = new Intent(this, CalculActivity.class);
+         startActivity(intent);
+     }
 }
