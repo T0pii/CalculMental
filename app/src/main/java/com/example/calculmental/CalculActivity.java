@@ -32,6 +32,8 @@ public class CalculActivity extends AppCompatActivity {
         bouton9.setOnClickListener(view -> ecrireChiffre(9));
         Button bouton0 = findViewById(R.id.button_0);
         bouton0.setOnClickListener(view -> ecrireChiffre(0));
+
+        TextView resultat = findViewById(R.id.resultat);
     }
 
     public void ecrireChiffre(Integer valeur) {
