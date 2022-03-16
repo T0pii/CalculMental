@@ -141,10 +141,13 @@
             android:layout_height="wrap_content"
             android:gravity="center">
 
-            <Space
-                android:layout_width="wrap_content"
+            <Button
+                android:id="@+id/buttonclear"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:text="EFFACER" />
 
             <Button
                 android:id="@+id/button_0"
@@ -154,10 +157,13 @@
                 android:layout_weight="1"
                 android:text="0" />
 
-            <Space
-                android:layout_width="wrap_content"
+            <Button
+                android:id="@+id/buttoncompute"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:text="CALCULER" />
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -40,6 +40,11 @@ public class CalculActivity extends AppCompatActivity {
         bouton9.setOnClickListener(view -> ecrireChiffre(9));
         Button bouton0 = findViewById(R.id.button_0);
         bouton0.setOnClickListener(view -> ecrireChiffre(0));
+        Button boutonclear = findViewById(R.id.buttonclear);
+        //boutonclear.setOnClickListener(view -> effacerChiffre);
+        Button boutoncalculer = findViewById(R.id.buttoncompute);
+        boutoncalculer.setOnClickListener(view -> checkAnswer());
+
         resultat = findViewById(R.id.resultat);
         randomcalcul = findViewById(R.id.rdmcalc);
         creercalculRandom();
@@ -49,7 +54,7 @@ public class CalculActivity extends AppCompatActivity {
         resultat.setText(resultat.getText()+valeur.toString());
     }
 
-    public void creercalculRandom() {
+    public String creercalculRandom() {
 
         premierElement = genererNombre();
         deuxiemeElement = genererNombre();
@@ -58,6 +63,7 @@ public class CalculActivity extends AppCompatActivity {
         resultat = Integer.toString(premierElement) + " " + listeRandom() + " " + Integer.toString(deuxiemeElement);
 
         randomcalcul.setText(resultat);
+        return resultat;
     }
 
     public String listeRandom() {
@@ -77,6 +83,10 @@ public class CalculActivity extends AppCompatActivity {
         int nb;
         nb = random.nextInt(10);
         return nb;
+    }
+
+    public void checkAnswer() {
+
     }
 
 }
