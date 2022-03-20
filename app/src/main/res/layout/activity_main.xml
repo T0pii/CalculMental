@@ -65,7 +65,6 @@
             android:layout_height="48dp"
             android:background="#00FFFFFF"
             android:scaleType="centerCrop" />
-
     </LinearLayout>
 
 

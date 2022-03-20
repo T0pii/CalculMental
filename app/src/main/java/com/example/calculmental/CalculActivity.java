@@ -1,6 +1,7 @@
 package com.example.calculmental;
 
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -15,7 +16,7 @@ public class CalculActivity extends AppCompatActivity {
     private TextView randomcalcul;
     private int premierElement;
     private int deuxiemeElement;
-
+    private int nbChiffre=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,7 +52,9 @@ public class CalculActivity extends AppCompatActivity {
     }
 
     public void ecrireChiffre(Integer valeur) {
-        resultat.setText(resultat.getText()+valeur.toString());
+        nbChiffre++;
+        if (nbChiffre<=5)
+            resultat.setText(resultat.getText()+valeur.toString());
     }
 
     public String creercalculRandom() {
