@@ -19,25 +19,25 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center_horizontal|center_vertical"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textview_calcul"
+                android:id="@+id/rdmcalc"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="112dp"
                 android:layout_weight="1"
-                android:gravity="center"
-                android:text="2x3 ="
+                android:gravity="bottom|center_horizontal"
+                android:text="2 x 3"
                 android:textAlignment="center"
                 android:textSize="70sp" />
 
             <TextView
-                android:id="@+id/textview_calcul2"
+                android:id="@+id/resultat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="center"
-                android:text="test"
+                android:gravity="center_horizontal|center_vertical"
+                android:hint="?"
                 android:textAlignment="center"
                 android:textSize="70sp" />
 
@@ -141,10 +141,13 @@
             android:layout_height="wrap_content"
             android:gravity="center">
 
-            <Space
-                android:layout_width="wrap_content"
+            <Button
+                android:id="@+id/buttonclear"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:text="EFFACER" />
 
             <Button
                 android:id="@+id/button_0"
@@ -154,10 +157,13 @@
                 android:layout_weight="1"
                 android:text="0" />
 
-            <Space
-                android:layout_width="wrap_content"
+            <Button
+                android:id="@+id/buttoncompute"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:text="CALCULER" />
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
