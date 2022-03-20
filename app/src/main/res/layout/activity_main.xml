@@ -39,9 +39,10 @@
     <LinearLayout
         android:layout_width="231dp"
         android:layout_height="292dp"
+        android:layout_marginTop="1dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="1dp">
+        app:layout_constraintTop_toTopOf="parent">
 
         <Space
             android:layout_width="wrap_content"
@@ -73,11 +74,6 @@
             android:layout_height="48dp"
             android:background="#00FFFFFF"
             android:scaleType="centerCrop" />
-
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
 
     </LinearLayout>
 
