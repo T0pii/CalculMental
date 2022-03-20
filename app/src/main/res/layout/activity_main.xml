@@ -7,6 +7,7 @@
     tools:context=".MainActivity">
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -19,19 +20,66 @@
             android:id="@+id/btnjouer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Jouer" />
+            android:text="@string/btn_jouer" />
 
         <Button
             android:id="@+id/btnscores"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Scores" />
+            android:text="@string/btn_scores" />
 
         <Button
             android:id="@+id/btnaboutus"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="A propos" />
+            android:text="@string/btn_aboutUs" />
 
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="231dp"
+        android:layout_height="292dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="1dp">
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="#00FFFFFF"
+            android:text="🇫🇷"
+            android:textAlignment="center"
+            android:textSize="18sp" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <ImageButton
+            android:id="@+id/btnswitchtheme"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="#00FFFFFF"
+            android:scaleType="centerCrop" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

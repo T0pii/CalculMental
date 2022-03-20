@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MentalCounting</string>
+    <string name="btn_jouer">play</string>
+    <string name="btn_scores">scores</string>
+    <string name="btn_aboutUs">about us</string>
+</resources>

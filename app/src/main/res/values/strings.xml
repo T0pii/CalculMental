@@ -1,3 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">CalculMental</string>
+    <string name="app_name">Calcul Mental</string>
+    <string name="btn_jouer">jouer</string>
+    <string name="btn_scores">scores</string>
+    <string name="btn_aboutUs">A propos</string>
 </resources>
