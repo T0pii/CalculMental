@@ -1,7 +1,6 @@
 package com.example.calculmental;
 
 import android.os.Bundle;
-import android.os.Vibrator;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -16,6 +15,7 @@ public class CalculActivity extends AppCompatActivity {
     private TextView randomcalcul;
     private int premierElement;
     private int deuxiemeElement;
+
     private int nbChiffre=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,13 +42,14 @@ public class CalculActivity extends AppCompatActivity {
         Button bouton0 = findViewById(R.id.button_0);
         bouton0.setOnClickListener(view -> ecrireChiffre(0));
         Button boutonclear = findViewById(R.id.buttonclear);
-        //boutonclear.setOnClickListener(view -> effacerChiffre);
+        boutonclear.setOnClickListener(view -> effacerChiffre());
+        boutonclear.setOnLongClickListener(view -> effacerTout());
         Button boutoncalculer = findViewById(R.id.buttoncompute);
         boutoncalculer.setOnClickListener(view -> checkAnswer());
 
         resultat = findViewById(R.id.resultat);
         randomcalcul = findViewById(R.id.rdmcalc);
-        creercalculRandom();
+        genererCalculRandom();
     }
 
     public void ecrireChiffre(Integer valeur) {
@@ -57,7 +58,20 @@ public class CalculActivity extends AppCompatActivity {
             resultat.setText(resultat.getText()+valeur.toString());
     }
 
-    public String creercalculRandom() {
+    public void effacerChiffre() {
+        if (nbChiffre!=0) {
+            nbChiffre--;
+            resultat.setText(resultat.getText().subSequence(0, resultat.length() - 1));
+        }
+    }
+
+    public boolean effacerTout() {
+        resultat.setText("");
+        nbChiffre=0;
+        return true;
+    }
+
+    public String genererCalculRandom() {
 
         premierElement = genererNombre();
         deuxiemeElement = genererNombre();
