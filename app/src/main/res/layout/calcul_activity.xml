@@ -147,7 +147,8 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="3dp"
                 android:layout_weight="1"
-                android:text="EFFACER" />
+                android:text="⌫"
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/button_0"
@@ -164,6 +165,7 @@
                 android:layout_margin="3dp"
                 android:layout_weight="1"
                 android:text="CALCULER" />
+
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
