@@ -4,4 +4,7 @@
     <string name="btn_jouer">jouer</string>
     <string name="btn_scores">scores</string>
     <string name="btn_aboutUs">A propos</string>
+    <string name="valeurTropGrande">Valeur trop grande !</string>
+    <string name="valeurCorrecte">Correct !</string>
+    <string name="valeurIncorrecte">Incorrect!</string>
 </resources>

@@ -3,6 +3,7 @@ package com.example.calculmental;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,12 +12,16 @@ import java.util.List;
 import java.util.Random;
 
 public class CalculActivity extends AppCompatActivity {
-    private TextView resultat;
-    private TextView randomcalcul;
+    private TextView txtViewNombreEntre;
+    private TextView txtViewOperation;
     private int premierElement;
     private int deuxiemeElement;
-
     private int nbChiffre=0;
+
+    private long resultatAttendu;
+    private long nombreEntre;
+    private int score;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,40 +52,53 @@ public class CalculActivity extends AppCompatActivity {
         Button boutoncalculer = findViewById(R.id.buttoncompute);
         boutoncalculer.setOnClickListener(view -> checkAnswer());
 
-        resultat = findViewById(R.id.resultat);
-        randomcalcul = findViewById(R.id.rdmcalc);
+        txtViewNombreEntre = findViewById(R.id.txtViewNombreEntre);
+        txtViewOperation = findViewById(R.id.txtViewOperation);
         genererCalculRandom();
     }
 
     public void ecrireChiffre(Integer valeur) {
         nbChiffre++;
-        if (nbChiffre<=5)
-            resultat.setText(resultat.getText()+valeur.toString());
+        if (nbChiffre<=5) {
+            nombreEntre = nombreEntre * 10 + valeur;
+            txtViewNombreEntre.setText(Long.toString(nombreEntre));
+        }
+        else {
+            Toast.makeText(this, getString(R.string.valeurTropGrande), Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void effacerChiffre() {
         if (nbChiffre!=0) {
             nbChiffre--;
-            resultat.setText(resultat.getText().subSequence(0, resultat.length() - 1));
+            txtViewNombreEntre.setText(txtViewNombreEntre.getText().subSequence(0, txtViewNombreEntre.length() - 1));
+            nombreEntre=nombreEntre / 10;
         }
     }
 
     public boolean effacerTout() {
-        resultat.setText("");
+        txtViewNombreEntre.setText("");
+        nombreEntre=0;
         nbChiffre=0;
         return true;
     }
 
-    public String genererCalculRandom() {
-
+    public void genererCalculRandom() {
         premierElement = genererNombre();
         deuxiemeElement = genererNombre();
-        String resultat;
-
-        resultat = Integer.toString(premierElement) + " " + listeRandom() + " " + Integer.toString(deuxiemeElement);
-
-        randomcalcul.setText(resultat);
-        return resultat;
+        String operateurAleatoire=listeRandom();
+        switch(operateurAleatoire) {
+            case "+":
+                resultatAttendu=premierElement+deuxiemeElement;
+                break;
+            case "-":
+                resultatAttendu=premierElement-deuxiemeElement;
+                break;
+            case "*":
+                resultatAttendu=premierElement*deuxiemeElement;
+                break;
+        }
+        txtViewOperation.setText(Long.toString(premierElement) + operateurAleatoire + Long.toString(deuxiemeElement));
     }
 
     public String listeRandom() {
@@ -102,8 +120,21 @@ public class CalculActivity extends AppCompatActivity {
         return nb;
     }
 
-    public void checkAnswer() {
+    public void calculCorrect() {
+        genererCalculRandom();
+        nombreEntre=0;
+        nbChiffre=0;
+        txtViewNombreEntre.setText("");
+        score+=1;
+    }
 
+    public void checkAnswer() {
+        if(resultatAttendu==nombreEntre) {
+            Toast.makeText(this, getString(R.string.valeurCorrecte), Toast.LENGTH_SHORT).show();
+            calculCorrect();
+        } else {
+            Toast.makeText(this, getString(R.string.valeurIncorrecte), Toast.LENGTH_SHORT).show();
+        }
     }
 
 }
