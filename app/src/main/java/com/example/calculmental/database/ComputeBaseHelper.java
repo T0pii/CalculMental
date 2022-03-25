@@ -11,8 +11,6 @@ public class ComputeBaseHelper extends  DataBaseHelper {
         return "CREATE TABLE IF NOT EXISTS bestScore("
                 + "id" + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + CalculDao.cleBestEasy + " INTEGER NOT NULL, "
-                + CalculDao.cleBestMedium + " INTEGER NOT NULL, "
-                + CalculDao.cleBestHard + " INTEGER NOT NULL "
                 + ")";
     }
 

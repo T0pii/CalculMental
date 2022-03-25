@@ -10,23 +10,5 @@ public class Calcul extends BaseEntity{
         this.bestEasy = bestEasy;
     }
 
-    public Integer getBestMedium() {
-        return bestMedium;
-    }
-
-    public void setBestMedium(Integer bestMedium) {
-        this.bestMedium = bestMedium;
-    }
-
-    public Integer getBestHard() {
-        return bestHard;
-    }
-
-    public void setBestHard(Integer bestHard) {
-        this.bestHard = bestHard;
-    }
-
     Integer bestEasy;
-    Integer bestMedium;
-    Integer bestHard;
 }
