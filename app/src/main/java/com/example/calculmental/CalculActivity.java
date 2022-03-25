@@ -14,13 +14,16 @@ import java.util.Random;
 public class CalculActivity extends AppCompatActivity {
     private TextView txtViewNombreEntre;
     private TextView txtViewOperation;
+    private TextView txtViewScore;
+    private TextView txtViewBest;
     private int premierElement;
     private int deuxiemeElement;
     private int nbChiffre=0;
 
     private long resultatAttendu;
     private long nombreEntre;
-    private int score;
+    private int score = 0;
+    private int best;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +57,8 @@ public class CalculActivity extends AppCompatActivity {
 
         txtViewNombreEntre = findViewById(R.id.txtViewNombreEntre);
         txtViewOperation = findViewById(R.id.txtViewOperation);
+        txtViewScore = findViewById(R.id.txtViewScore);
+        txtViewBest = findViewById(R.id.txtViewBest);
         genererCalculRandom();
     }
 
@@ -84,9 +89,13 @@ public class CalculActivity extends AppCompatActivity {
     }
 
     public void genererCalculRandom() {
-        premierElement = genererNombre();
-        deuxiemeElement = genererNombre();
         String operateurAleatoire=listeRandom();
+
+        do {
+            premierElement = genererNombre();
+            deuxiemeElement = genererNombre();
+        } while (premierElement - deuxiemeElement < 0);
+
         switch(operateurAleatoire) {
             case "+":
                 resultatAttendu=premierElement+deuxiemeElement;
@@ -126,6 +135,7 @@ public class CalculActivity extends AppCompatActivity {
         nbChiffre=0;
         txtViewNombreEntre.setText("");
         score+=1;
+        txtViewScore.setText(Integer.toString(score));
     }
 
     public void checkAnswer() {
