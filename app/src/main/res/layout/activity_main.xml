@@ -20,19 +20,22 @@
             android:id="@+id/btnjouer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/btn_jouer" />
+            android:text="@string/btn_jouer"
+            android:textColor="@color/white" />
 
         <Button
             android:id="@+id/btnscores"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/btn_scores" />
+            android:text="@string/btn_scores"
+            android:textColor="@color/white" />
 
         <Button
             android:id="@+id/btnaboutus"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/btn_aboutUs" />
+            android:text="@string/btn_aboutUs"
+            android:textColor="@color/white" />
 
     </LinearLayout>
 
