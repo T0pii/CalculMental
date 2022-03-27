@@ -9,7 +9,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-public class MainActivity extends AppCompatActivity {
+import com.example.calculmental.entities.AboutUsActivity;
+
+ public class MainActivity extends AppCompatActivity {
 
 
     @Override
@@ -20,6 +22,9 @@ public class MainActivity extends AppCompatActivity {
         btnjouer.setOnClickListener(view -> ouvreActiviteCalculer());
         Button btnscores = findViewById(R.id.btnscores);
         btnscores.setOnClickListener(view -> ouvreActiviteScores());
+        Button btnAbout=findViewById(R.id.btnaboutus);
+        btnAbout.setOnClickListener(view -> ouvreActiviteAboutUs());
+
         ImageButton btnswitchtheme = findViewById(R.id.btnswitchtheme);
         setDarkModeIcon(btnswitchtheme);
         btnswitchtheme.setOnClickListener(view -> switchTheme(btnswitchtheme));
@@ -43,9 +48,13 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(MainActivity.this, MainActivity.this.getClass()));
     }
 
+    private void ouvreActiviteAboutUs() {
+        Intent intent = new Intent(this, AboutUsActivity.class);
+        startActivity(intent);
+    }
 
     private void ouvreActiviteScores() {
-        Intent intent = new Intent(this,ScoreActivity.class);
+        Intent intent = new Intent(this,ScoresActivity.class);
         startActivity(intent);
     }
 
