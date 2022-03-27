@@ -2,13 +2,13 @@ package com.example.calculmental.entities;
 
 public class Calcul extends BaseEntity{
 
-    public Integer getBestEasy() {
-        return bestEasy;
+    public Integer getBest() {
+        return best;
     }
 
-    public void setBestEasy(Integer bestEasy) {
-        this.bestEasy = bestEasy;
+    public void setBest(Integer bestEasy) {
+        this.best = best;
     }
 
-    Integer bestEasy;
+    Integer best;
 }

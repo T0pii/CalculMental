@@ -9,7 +9,7 @@ public class CalculDao extends BaseDao<Calcul> {
     public CalculDao(DataBaseHelper helper) {
         super(helper);
     }
-    static String cleBestEasy = "bestEasy";
+    static String cleBest = "best";
 
     @Override
     protected String getTableName() {
@@ -18,15 +18,15 @@ public class CalculDao extends BaseDao<Calcul> {
 
     @Override
     protected void putValues(ContentValues values, Calcul entity) {
-        values.put(cleBestEasy, entity.getBestEasy());
+        values.put(cleBest, entity.getBest());
     }
 
     @Override
     protected Calcul getEntity(Cursor cursor) {
         Calcul calcul = new Calcul();
         cursor.moveToFirst();
-        Integer indexPremierElement = cursor.getColumnIndex(cleBestEasy);
-        calcul.setBestEasy(cursor.getInt(indexPremierElement));
+        Integer indexPremierElement = cursor.getColumnIndex(cleBest);
+        calcul.setBest(cursor.getInt(indexPremierElement));
         return calcul;
     }
 }

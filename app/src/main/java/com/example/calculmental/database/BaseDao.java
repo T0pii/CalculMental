@@ -90,18 +90,18 @@ public abstract class BaseDao<T extends BaseEntity> {
         return count;
     }
 
-    public int leBestEasy() {
+    public int leBest() {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
-        int bestScoreEasy=0;
+        int bestScore=0;
 
-        Cursor cursor = db.rawQuery("select * from "+getTableName()+" order by bestEasy DESC", null);
+        Cursor cursor = db.rawQuery("select * from "+getTableName()+" order by best DESC", null);
         cursor.moveToFirst();
         if (count()>0) {
-            bestScoreEasy = cursor.getInt(1);
+            bestScore = cursor.getInt(1);
             cursor.close();
         }
 
-        return bestScoreEasy;
+        return bestScore;
     }
 }
 
