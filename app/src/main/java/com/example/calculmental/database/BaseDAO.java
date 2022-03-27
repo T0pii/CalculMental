@@ -9,10 +9,10 @@ import com.example.calculmental.entities.BaseEntity;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class BaseDao<T extends BaseEntity> {
+public abstract class BaseDAO<T extends BaseEntity> {
     private final DataBaseHelper dbHelper;
 
-    public BaseDao(DataBaseHelper helper){
+    public BaseDAO(DataBaseHelper helper){
         this.dbHelper = helper;
     }
 
@@ -20,10 +20,6 @@ public abstract class BaseDao<T extends BaseEntity> {
     protected abstract void putValues(ContentValues values, T entity);
     protected abstract T getEntity(Cursor cursor);
 
-    /**
-     * @param entity : element a ajouter dans la base
-     * @return : l element créait avec son ID
-     */
     public T create(T entity){
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 

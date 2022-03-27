@@ -5,8 +5,8 @@ import android.database.Cursor;
 
 import com.example.calculmental.entities.Calcul;
 
-public class CalculDao extends BaseDao<Calcul> {
-    public CalculDao(DataBaseHelper helper) {
+public class CalculDAO extends BaseDAO<Calcul> {
+    public CalculDAO(DataBaseHelper helper) {
         super(helper);
     }
     static String cleBest = "best";

@@ -1,17 +1,13 @@
 package com.example.calculmental.services;
 
-import com.example.calculmental.database.CalculDao;
+import com.example.calculmental.database.CalculDAO;
 import com.example.calculmental.entities.Calcul;
 
 public class CalculService {
-    private CalculDao calculDAO;
+    private CalculDAO calculDAO;
 
-    public CalculService(CalculDao calculDAO) {
+    public CalculService(CalculDAO calculDAO) {
         this.calculDAO = calculDAO;
-    }
-
-    public Long getCalculCount() {
-        return calculDAO.count();
     }
 
     public Integer getBest() { return calculDAO.leBest(); }

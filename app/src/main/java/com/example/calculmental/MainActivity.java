@@ -9,8 +9,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-import com.example.calculmental.AboutUsActivity;
-
  public class MainActivity extends AppCompatActivity {
 
 
@@ -24,6 +22,7 @@ import com.example.calculmental.AboutUsActivity;
         btnscores.setOnClickListener(view -> ouvreActiviteScores());
         Button btnAbout=findViewById(R.id.btnaboutus);
         btnAbout.setOnClickListener(view -> ouvreActiviteAboutUs());
+
 
         ImageButton btnswitchtheme = findViewById(R.id.btnswitchtheme);
         setDarkModeIcon(btnswitchtheme);

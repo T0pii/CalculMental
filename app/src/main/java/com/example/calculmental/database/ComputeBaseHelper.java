@@ -10,7 +10,7 @@ public class ComputeBaseHelper extends  DataBaseHelper {
     protected String getCreationSql() {
         return "CREATE TABLE IF NOT EXISTS bestScore("
                 + "id" + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + CalculDao.cleBest + " INTEGER NOT NULL, "
+                + CalculDAO.cleBest + " INTEGER NOT NULL "
                 + ")";
     }
 
