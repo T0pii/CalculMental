@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".entities.AboutUsActivity">
+    tools:context=".AboutUsActivity">
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -33,7 +33,7 @@
                 android:id="@+id/textView3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="CONTE Lucas & ROHART Pascal"
+                android:text="CONTE Lucas et ROHART Pascal"
                 android:textAlignment="center"
                 android:textSize="20sp" />
 

@@ -1,11 +1,17 @@
 package com.example.calculmental;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.calculmental.database.CalculDao;
+import com.example.calculmental.database.ComputeBaseHelper;
+import com.example.calculmental.entities.Calcul;
+import com.example.calculmental.services.CalculService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,16 +25,18 @@ public class CalculActivity extends AppCompatActivity {
     private int premierElement;
     private int deuxiemeElement;
     private int nbChiffre=0;
-
+    private CalculService calculService;
     private long resultatAttendu;
     private long nombreEntre;
     private int score = 0;
     private int best;
+    private Calcul calcul = new Calcul();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.calcul_activity);
+        calculService = new CalculService(new CalculDao(new ComputeBaseHelper(this)));
         Button bouton1 = findViewById(R.id.button_1);
         bouton1.setOnClickListener(view -> ecrireChiffre(1));
         Button bouton2 = findViewById(R.id.button_2);
@@ -59,6 +67,14 @@ public class CalculActivity extends AppCompatActivity {
         txtViewOperation = findViewById(R.id.txtViewOperation);
         txtViewScore = findViewById(R.id.txtViewScore);
         txtViewBest = findViewById(R.id.txtViewBest);
+
+        if (calculService.getBest()!=null)
+            txtViewBest.setText(calculService.getBest());
+        else
+            txtViewBest.setText("0");
+
+        txtViewBest = findViewById(R.id.txtViewBest);
+
         genererCalculRandom();
     }
 
@@ -135,15 +151,30 @@ public class CalculActivity extends AppCompatActivity {
         nbChiffre=0;
         txtViewNombreEntre.setText("");
         score+=1;
-        txtViewScore.setText(Integer.toString(score));
+        txtViewScore.setText(score);
     }
 
     public void checkAnswer() {
         if(resultatAttendu==nombreEntre) {
             Toast.makeText(this, getString(R.string.valeurCorrecte), Toast.LENGTH_SHORT).show();
             calculCorrect();
+            majBest();
         } else {
             Toast.makeText(this, getString(R.string.valeurIncorrecte), Toast.LENGTH_SHORT).show();
+            calculService.storeInOb(calcul);
+            Intent intent = new Intent(this, ScoresActivity.class);
+            intent.putExtra("best",score);
+            startActivity(intent);
+            calcul.setBest(score);
+            finish();
+
+        }
+    }
+
+    private void majBest() {
+        if (calculService.getBest() != null) {
+            if (calculService.getBest() < score)
+                txtViewBest.setText(score);
         }
     }
 

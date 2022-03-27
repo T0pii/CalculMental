@@ -1,4 +1,4 @@
-package com.example.calculmental.entities;
+package com.example.calculmental;
 
 import androidx.appcompat.app.AppCompatActivity;
 

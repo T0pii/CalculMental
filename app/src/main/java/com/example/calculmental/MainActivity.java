@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-import com.example.calculmental.entities.AboutUsActivity;
+import com.example.calculmental.AboutUsActivity;
 
  public class MainActivity extends AppCompatActivity {
 
