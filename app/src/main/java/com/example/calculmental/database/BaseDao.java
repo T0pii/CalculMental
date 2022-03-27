@@ -92,7 +92,7 @@ public abstract class BaseDao<T extends BaseEntity> {
 
     public int leBestEasy() {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
-        int bestScoreEasy=-69;
+        int bestScoreEasy=0;
 
         Cursor cursor = db.rawQuery("select * from "+getTableName()+" order by bestEasy DESC", null);
         cursor.moveToFirst();
@@ -103,31 +103,5 @@ public abstract class BaseDao<T extends BaseEntity> {
 
         return bestScoreEasy;
     }
-
-    public int leBestMedium() {
-        SQLiteDatabase db = dbHelper.getReadableDatabase();
-        int bestScoreMedium=-69;
-
-        Cursor cursor = db.rawQuery("select * from "+getTableName()+" order by bestMedium DESC", null);
-        cursor.moveToFirst();
-        if(count()>0) {
-            bestScoreMedium = cursor.getInt(2);
-            cursor.close();
-        }
-
-        return bestScoreMedium;
-    }
-
-    public int leBestHard() {
-        SQLiteDatabase db = dbHelper.getReadableDatabase();
-        int bestScoreHard=-69;
-        Cursor cursor = db.rawQuery("select * from " + getTableName() + " order by bestHard DESC", null);
-        cursor.moveToFirst();
-        if (count()>0) {
-            bestScoreHard = cursor.getInt(3);
-            cursor.close();
-        }
-
-        return bestScoreHard;
-    }
 }
+

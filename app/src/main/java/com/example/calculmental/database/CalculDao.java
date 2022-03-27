@@ -10,8 +10,6 @@ public class CalculDao extends BaseDao<Calcul> {
         super(helper);
     }
     static String cleBestEasy = "bestEasy";
-    static String cleBestMedium = "bestMedium";
-    static String cleBestHard = "bestHard";
 
     @Override
     protected String getTableName() {
@@ -21,9 +19,6 @@ public class CalculDao extends BaseDao<Calcul> {
     @Override
     protected void putValues(ContentValues values, Calcul entity) {
         values.put(cleBestEasy, entity.getBestEasy());
-        values.put(cleBestMedium, entity.getBestMedium());
-        values.put(cleBestHard, entity.getBestHard());
-
     }
 
     @Override
@@ -31,11 +26,7 @@ public class CalculDao extends BaseDao<Calcul> {
         Calcul calcul = new Calcul();
         cursor.moveToFirst();
         Integer indexPremierElement = cursor.getColumnIndex(cleBestEasy);
-        Integer indexDeuxiemeElement = cursor.getColumnIndex(cleBestMedium);
-        Integer indexResultat = cursor.getColumnIndex(cleBestHard);
         calcul.setBestEasy(cursor.getInt(indexPremierElement));
-        calcul.setBestMedium(cursor.getInt(indexDeuxiemeElement));
-        calcul.setBestHard(cursor.getInt(indexResultat));
         return calcul;
     }
 }
